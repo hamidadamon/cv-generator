@@ -1,0 +1,10 @@
+body {
+    font-family: Arial;
+    text-align: center;
+}
+
+#cv {
+    margin-top: 20px;
+    border: 1px solid black;
+    padding: 20px;
+}
