@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>CV Generator</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Générateur de CV</h1>
+
+  <div class="layout">
+
+    <!-- FORMULAIRE -->
+    <div class="formulaire">
+
+      <h2>Infos personnelles</h2>
+      <input id="nom"      placeholder="Nom complet *">
+      <input id="metier"   placeholder="Métier *">
+      <input id="email"    placeholder="Email *">
+      <input id="tel"      placeholder="Téléphone">
+      <input id="ville"    placeholder="Ville">
+      <input id="linkedin" placeholder="LinkedIn (URL)">
+      <input id="photo"    placeholder="Photo (URL d'une image)">
+
+      <h2>Profil</h2>
+      <textarea id="desc" placeholder="Description *" rows="4"></textarea>
+
+      <h2>Compétences</h2>
+      <div class="ligne">
+        <input id="competenceInput" placeholder="ex : JavaScript — Entrée pour ajouter">
+        <button onclick="ajouterTag()">+</button>
+      </div>
+      <div id="tagsList"></div>
+
+      <h2>Expériences</h2>
+      <div id="experiencesContainer"></div>
+      <button class="btn-add" onclick="ajouterExperience()">+ Ajouter une expérience</button>
+
+      <h2>Formations</h2>
+      <div id="formationsContainer"></div>
+      <button class="btn-add" onclick="ajouterFormation()">+ Ajouter une formation</button>
+
+      <!-- CHOIX DU THÈME -->
+      <h2>Thème du CV</h2>
+      <div class="themes">
+        <button class="theme-btn actif" data-theme="classique" onclick="choisirTheme('classique', this)">
+          <span class="theme-pastille" style="background:#1a3c5e"></span>
+          Classique
+        </button>
+        <button class="theme-btn" data-theme="moderne" onclick="choisirTheme('moderne', this)">
+          <span class="theme-pastille" style="background:#1e4d3b"></span>
+          Moderne
+        </button>
+        <button class="theme-btn" data-theme="elegant" onclick="choisirTheme('elegant', this)">
+          <span class="theme-pastille" style="background:#1a1a1a"></span>
+          Élégant
+        </button>
+      </div>
+
+      <div class="actions">
+        <button class="btn-reset"   onclick="reinitialiser()">Réinitialiser</button>
+        <button class="btn-primary" onclick="genererCv()">Générer le CV</button>
+      </div>
+
+    </div>
+
+    <!-- APERÇU CV -->
+    <div class="cv-panel">
+      <div class="cv-panel-header">
+        <span>Aperçu</span>
+        <button onclick="telechargerPDF()">⬇ PDF</button>
+      </div>
+      <div id="cv" class="cv-vide">
+        <p>Remplis le formulaire et clique sur <strong>Générer le CV</strong></p>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
